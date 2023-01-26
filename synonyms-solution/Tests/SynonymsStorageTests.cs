@@ -117,4 +117,27 @@ public class SynonymsStorageTests
         Assert.That(_synonymsStorage.GetSynonyms(searchWord1), Is.EquivalentTo(expectedSynonyms1));
         Assert.That(_synonymsStorage.GetSynonyms(searchWord2), Is.EquivalentTo(expectedSynonyms2));
     }
+
+    [Test]
+    public void TestLaterConnectionOfSynonymsGroups()
+    {
+        // Arrange
+        var word1 = "A";
+        var synonyms1 = new List<string> { "B", "C" };
+
+        var word2 = "D";
+        var synonyms2 = new List<string> { "E", "F" };
+
+        var word3 = "A";
+        var synonyms3 = new List<string> { "B", "G" };
+        
+        // Act
+        _synonymsStorage.AddSynonyms(word1, synonyms1);
+        _synonymsStorage.AddSynonyms(word2, synonyms2);
+        _synonymsStorage.AddSynonyms(word3, synonyms3);
+
+        // Assert
+        var expectedSynonyms = new List<string> { "B", "C", "D", "E", "F", "G" };
+        Assert.That(_synonymsStorage.GetSynonyms(word1), Is.EquivalentTo(expectedSynonyms));
+    }
 }
