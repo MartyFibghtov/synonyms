@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace synonyms_project.Core;
 
 public class SynonymsStorage
@@ -8,6 +10,19 @@ public class SynonymsStorage
     public SynonymsStorage()
     {
         _synonymsStorage = new Dictionary<string, HashSet<string>>();
+    }
+
+    public List<string> GetSynonyms(string word)
+    {
+        if (! _synonymsStorage.ContainsKey(word))
+        {
+            throw new KeyNotFoundException("Unknown word");
+        }
+        
+        var synonyms = _synonymsStorage[word].ToList();
+        synonyms.Remove(word);
+        
+        return synonyms;
     }
     
     // Method to add synonyms to the storage
