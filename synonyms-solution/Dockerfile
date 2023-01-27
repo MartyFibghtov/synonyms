@@ -17,4 +17,4 @@ COPY --from=build /app ./
 EXPOSE 80
 EXPOSE 443
 
-["dotnet", "synonyms-project.dll", "--ssl-cert-path=/app/fullchain.pem", "--ssl-key-path=/app/privkey.pem"]
+ENTRYPOINT ["dotnet", "synonyms-project.dll", "--ssl-cert-path=/app/fullchain.pem", "--ssl-key-path=/app/privkey.pem"]
