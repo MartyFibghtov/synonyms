@@ -73,7 +73,7 @@ public class SynonymsStorageTests
         Assert.That(_synonymsStorage.GetSynonyms(word3), Is.EquivalentTo(synonyms3));
         var ex = Assert.Throws<KeyNotFoundException>(() => _synonymsStorage.GetSynonyms(unknownWord));
         
-        Assert.That(ex.Message, Is.EqualTo(expectedErrorMsg));
+        Assert.That(ex?.Message, Is.EqualTo(expectedErrorMsg));
     }
     
     [Test]
