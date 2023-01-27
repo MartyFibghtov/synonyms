@@ -1,7 +1,37 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+﻿#FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+#WORKDIR /source
+## Copy csproj and restore as distinct layers
+#COPY . .
+#RUN dotnet restore "./synonyms-project.csproj"
+#RUN dotnet publish "./synonyms-project.csproj" -c release -o /app --no-restore
+#
+#
+#
+#FROM mcr.microsoft.com/dotnet/aspnet:6.0
+#WORKDIR /apps
+#COPY --from=build /app/ .
+#EXPOSE 80
+#EXPOSE 443
+#EXPOSE 5000
+#EXPOSE 5001
+#
+#ENTRYPOINT ["dotnet", "synonyms-project.dll"]
+## ENTRYPOINT ["dotnet", "run"]
+#
+#
+#
+#
+#
+#
+# TODO Delete
+
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
+
+EXPOSE 5000
+EXPOSE 5001
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
