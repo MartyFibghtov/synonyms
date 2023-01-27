@@ -7,8 +7,12 @@ builder.Services.AddControllersWithViews();
 
 // Add SynonymsStorage Singleton 
 builder.Services.AddSingleton<SynonymsStorage>();
+builder.Services.AddHealthChecks();
 
 var app = builder.Build();
+
+// Health
+app.MapHealthChecks("/health");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
