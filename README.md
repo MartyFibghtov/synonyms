@@ -13,6 +13,12 @@ Frontend: Vue.js 3
 - Search is transitive     - if "B" is a synonym to "A" and "C" a synonym to "B", then "C"
 - No DataBase, only RAM usage
 
+# Assumptions
+- On average every english word has around 10 synonyms.
+https://www.macmillanthesaurus.com/
+
+- The amount of search requests will be dramatically bigger then additions.
+
 # API Documentation
 
 
@@ -85,11 +91,15 @@ ___
 Search for a synonyms will be **O(1)** due to Dictionary usage
 
 #### Synonyms add operation
-Add *N* synonyms <br>
-Word already has *M* synonyms <br>
+Worst case: 
+- there are already N synonyms groups that have M words
+- new X synonyms join previously not joined words
 
-O(N) to find set (if only the last synonym is known) and then <br>
-O(M + N) to add synonyms to `SynonymsGroup` <br>
+
+O(N * M) ~ O(N^2) to join all current synonyms groups in one
+O(X + M) to add synonyms to `SynonymsGroup` <br>
 O(N) to create keys for new words in `SynonymsStorage` <br>
 
-So the worst case will be O(N) + O(M + N) + O(N) ~ **O(N)**
+So the worst case will be **O(N^2)** <br>
+
+That is not much because there are only 10 synonyms for a word. 

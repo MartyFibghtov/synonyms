@@ -1,5 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
-
 namespace synonyms_project.Core;
 
 public class SynonymsStorage
@@ -51,26 +49,33 @@ public class SynonymsStorage
         AddNewSynonymKeys(newSynonymsGroup, currentSynonymsGroup);
     }
 
-    private HashSet<string> GetSynonymsGroupOrCreateNew(HashSet<string> newSynonymsGroup)
+    // Returns Synonyms Group 
+    // If groups were separated before - joins them in one and reassign keys 
+    private HashSet<string> GetSynonymsGroupOrCreateNew(HashSet<string> newSynonyms)
     {
-        HashSet<string>? currentSynonymsGroup = null;
-        
-        // Look through every synonym to find its synonymGroup
-        foreach (var synonym in newSynonymsGroup)
+        HashSet<HashSet<string>>? synonymsGroups = new HashSet<HashSet<string>>();
+
+        // Look through every synonym to find its synonyms
+        // In case groups were not connected earlier - connect them all together now
+        foreach (var newSynonym in newSynonyms)
         {
-            if (_synonymsStorage.ContainsKey(synonym))
+            if (_synonymsStorage.ContainsKey(newSynonym))
             {
-                currentSynonymsGroup = _synonymsStorage[synonym];
-                break;
+                synonymsGroups.Add(_synonymsStorage[newSynonym]);
             }
         }
-        // If not found - initialize new empty
-        if (currentSynonymsGroup == null)
+        
+        HashSet<string>? synonyms = new HashSet<string>();
+        // Now group union current synonyms groups in one 
+        foreach (var synonymsGroup in synonymsGroups)
         {
-            currentSynonymsGroup = new HashSet<string>();
+            synonyms.UnionWith(synonymsGroup);
         }
+        
+        // Update synonym groups for all these words 
+        AddNewSynonymKeys(synonyms, synonyms);
 
-        return currentSynonymsGroup;
+        return synonyms;
     }
     
     // Add all words in same synonymic group to _synonymsStorage

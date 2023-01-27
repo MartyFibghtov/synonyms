@@ -129,7 +129,7 @@ public class SynonymsStorageTests
         var synonyms2 = new List<string> { "E", "F" };
 
         var word3 = "A";
-        var synonyms3 = new List<string> { "B", "G" };
+        var synonyms3 = new List<string> { "E", "G" };
         
         // Act
         _synonymsStorage.AddSynonyms(word1, synonyms1);
