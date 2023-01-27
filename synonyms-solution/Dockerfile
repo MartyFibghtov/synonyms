@@ -3,8 +3,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
 WORKDIR /source
 COPY . .
-#COPY //etc/letsencrypt/live/kadroom.xyz/fullchain.pem /app/fullchain.pem
-#COPY //etc/letsencrypt/live/kadroom.xyz/privkey.pem /app/privkey.pem
+COPY /etc/letsencrypt/live/kadroom.xyz/fullchain.pem /app/fullchain.pem
+COPY /etc/letsencrypt/live/kadroom.xyz/privkey.pem /app/privkey.pem
 
 RUN dotnet restore "./synonyms-project/synonyms-project.csproj" --disable-parallel
 RUN dotnet publish "./synonyms-project/synonyms-project.csproj" -c release -o /app --no-restore
