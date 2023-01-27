@@ -118,6 +118,7 @@ public class SynonymsStorageTests
         Assert.That(_synonymsStorage.GetSynonyms(searchWord2), Is.EquivalentTo(expectedSynonyms2));
     }
 
+    // Test the case when there were two separated synonymsGroups which were joined during new insert
     [Test]
     public void TestLaterConnectionOfSynonymsGroups()
     {
