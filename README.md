@@ -24,13 +24,10 @@ https://www.macmillanthesaurus.com/
 
 
 <details>
- <summary><code>GET</code> <code><b>/api/get-synonyms/</b></code> <code>(returns synonyms for word)</code></summary>
+ <summary><code>GET</code> <code><b>/api/synonyms/get-synonyms/{word}</b></code> <code>(returns synonyms for {word})</code></summary>
 
 ##### Parameters
-
-| name   | type     | data type | description                           |
-|--------|----------|-----------|---------------------------------------|
-| `word` | required | string    | Words that's synonyms should be found |
+This request takes no parameters
 
 ##### Response
 | name       | data type    | description                                                                             |
@@ -42,7 +39,7 @@ https://www.macmillanthesaurus.com/
 </details>
 
 <details>
- <summary><code>POST</code> <code><b>/api/create-synonyms/</b></code> <code>(adds synonyms for word)</code></summary>
+ <summary><code>POST</code> <code><b>/api/synonyms/create-synonyms/</b></code> <code>(adds synonyms for word)</code></summary>
 
 ##### Parameters
 

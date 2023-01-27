@@ -1,7 +1,12 @@
+using synonyms_project.Core;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add SynonymsStorage Singleton 
+builder.Services.AddSingleton<SynonymsStorage>();
 
 var app = builder.Build();
 
