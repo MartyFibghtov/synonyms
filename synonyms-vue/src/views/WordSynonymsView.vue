@@ -1,8 +1,8 @@
 <template>
   <h2>You were redirected to {{ searchedWord }} page</h2>
-  <ul>
-    <li v-for="synonym in synonyms">{{ synonym }}</li>
-  </ul>
+<!--  <ul>-->
+<!--    <li v-for="synonym in synonyms">{{ synonym }}</li>-->
+<!--  </ul>-->
 </template>
 
 <script>

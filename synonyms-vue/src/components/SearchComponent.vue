@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "Search",
+  name: "SearchComponent",
   
   data() {
     return {
