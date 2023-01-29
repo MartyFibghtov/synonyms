@@ -7,6 +7,10 @@ const routes = [
     name: 'home',
     component: HomeView
   },
+  {
+    path: '/search/:word',
+    component: () => import('@/views/WordSynonymsView.vue')
+  }
 ]
 
 const router = createRouter({
