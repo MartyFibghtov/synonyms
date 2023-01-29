@@ -1,7 +1,7 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = {
   devServer: {
-    host: 'kadroom.xyz',
+    host: '0.0.0.0',
     port: 8089
   }
 } 
