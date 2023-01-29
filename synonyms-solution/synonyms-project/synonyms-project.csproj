@@ -12,16 +12,20 @@
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
+      <Content Update="Views\Home\Index.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>
       <_ContentIncludedByDefault Remove="Views\Shared\Error.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Shared\_Layout.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Views" />
+      <_ContentIncludedByDefault Remove="dist\manifest.json" />
+      <_ContentIncludedByDefault Remove="vue\jsconfig.json" />
+      <_ContentIncludedByDefault Remove="vue\package-lock.json" />
+      <_ContentIncludedByDefault Remove="vue\package.json" />
     </ItemGroup>
 
 </Project>

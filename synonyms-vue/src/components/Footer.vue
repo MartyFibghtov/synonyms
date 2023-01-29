@@ -41,7 +41,7 @@ export default {
   }
 }
 footer {
-  height: calc(100vh - 500px);
+  height: calc(100vh - 600px);
 }
 
 @media (max-width: 767px) {
