@@ -1,17 +1,17 @@
 <template>
   2
-<!--  <Header />-->
-<!--  <Search style="margin-top: 200px"/>-->
-<!--  <Footer />-->
+  <HeaderComponent />
+  <SearchComponent style="margin-top: 200px"/>
+  <FooterComponent />
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
-import Search from "@/components/Search.vue";
-import Footer from "@/components/Footer.vue";
+import HeaderComponent from "@/components/HeaderComponent.vue";
+import SearchComponent from "@/components/SearchComponent.vue";
+import FooterComponent from "@/components/FooterComponent.vue";
 export default {
   name: 'HomeView',
-  components: {Search, Header, Footer},
+  components: {SearchComponent, HeaderComponent, FooterComponent},
 }
 
 </script>
