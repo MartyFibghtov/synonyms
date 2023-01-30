@@ -10,6 +10,10 @@ const routes = [
   {
     path: '/search/:word',
     component: () => import('@/views/WordSynonymsView.vue')
+  },
+  {
+    path: '/add-synonyms/',
+    component: () => import('@/views/SynonymsAddView.vue')
   }
 ]
 
