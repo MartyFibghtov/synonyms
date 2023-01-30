@@ -1,15 +1,23 @@
 <template>
-  <h2>You were redirected to {{ searchedWord }} page</h2>
-<!--  <ul>-->
-<!--    <li v-for="synonym in synonyms">{{ synonym }}</li>-->
-<!--  </ul>-->
+  <div>
+    <HeaderComponent></HeaderComponent>
+    <SearchComponent></SearchComponent>
+    <div class="search-result-and-word">
+      <h2 class="searched-word">{{ searchedWord }}</h2>
+      <SynonymList :synonyms="synonyms"></SynonymList>
+    </div>
+  </div>
 </template>
 
 <script>
-
 import axios from "axios";
+import SearchComponent from "@/components/SearchComponent.vue";
+import SynonymList from "@/components/SynonymList.vue";
+import HeaderComponent from "@/components/HeaderComponent.vue";
+
 export default {
   name: "WordSynonymsView.vue",
+  components: {HeaderComponent, SearchComponent, SynonymList},
   data() {
     return {
       synonyms: []
@@ -18,16 +26,19 @@ export default {
   computed: {
     searchedWord() {
       return (this.$route.params.word)
-    }
+    },
   },
-  mounted() {
-    this.getSynonyms();
+  watch: {
+    searchedWord: {
+      handler: 'getSynonyms',
+      immediate: true
+    }
   },
   methods: {
     async getSynonyms() {
       try {
         const response = await axios.get(
-            `/api/synonyms/get-synonyms/${this.searchedWord}`
+            `http://localhost:5000/api/synonyms/get-synonyms/${this.searchedWord}`
         );
         this.synonyms = response.data;
       } catch (error) {
@@ -39,5 +50,25 @@ export default {
 </script>
 
 <style scoped>
+.search-result-and-word {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.synonym-list li {
+  background-color: lightgray;
+  padding: 0.5em 1em;
+  margin: 0.5em;
+  border-radius: 5px;
+}
 
 </style>

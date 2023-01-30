@@ -21,7 +21,9 @@ export default {
   
   methods: {
     redirectToPage() {
-      this.$router.push({ name: "search/" + this.searchTerm });
+      this.$router.push({ path: "/search/" + this.searchTerm });
+      // Reset search bar when search is done 
+      this.searchTerm = ""
     }
   }
 };
@@ -31,6 +33,7 @@ export default {
   .search-container {
     width: 50%;
     margin: 2em auto;
+    position: relative;
   }
   form {
     display: flex;

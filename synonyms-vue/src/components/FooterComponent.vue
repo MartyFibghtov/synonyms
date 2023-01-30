@@ -40,15 +40,13 @@ export default {
     flex-direction: column;
   }
 }
-footer {
-  height: calc(100vh - 600px);
-}
 
 @media (max-width: 767px) {
   footer {
     height: auto;
   }
 }
+
 footer {
   display: flex;
   width: 100%;
