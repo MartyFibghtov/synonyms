@@ -2,28 +2,42 @@
   <main>
     <div class="search-container">
       <form @submit.prevent="redirectToPage">
-        <input type="text" placeholder="Search for synonyms..." v-model="searchTerm">
+        <input type="text" placeholder="Search for synonyms..." v-model="searchWord">
         <button type="submit">Search</button>
       </form>
+      <h1 style="color: red">{{errorMessage}}</h1>
     </div>
   </main>
 </template>
 
 <script>
+import {validateStringMixin} from "@/mixins/validateStringMixin";
+import {toast} from "vue3-toastify";
+
 export default {
   name: "SearchComponent",
   
   data() {
     return {
-      searchTerm: ""
+      searchWord: "",
+      errorMessage: "",
     };
   },
   
   methods: {
     redirectToPage() {
-      this.$router.push({ path: "/search/" + this.searchTerm });
-      // Reset search bar when search is done 
-      this.searchTerm = ""
+      try {
+        let searchWord = this.searchWord
+        validateStringMixin.methods.validateWord(searchWord)
+        this.$router.push({ path: "/search/" + searchWord });
+        // Reset search bar when search is done 
+        this.searchWord = ""
+        this.errorMessage = ""
+      } catch (error)
+      {
+        toast.error(error.message)
+      }
+      
     }
   }
 };

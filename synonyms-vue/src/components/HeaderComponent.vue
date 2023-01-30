@@ -1,6 +1,10 @@
 <template>
   <header>
-    <h1>Reeinvent: Synonyms</h1>
+  <h1>Reinvent: Synonyms</h1>
+  <nav>
+    <a href="/" class="nav-link">Home</a>
+    <a href="/add-synonyms/" class="nav-link">Add Synonyms</a>
+  </nav>
   </header>
 </template>
 
@@ -16,7 +20,7 @@ name: "HeaderComponent"
     background: #2665e2;
     color: white;
     text-align: center;
-    position: fixed;
+    position: relative;
     top: 0;
   }
 

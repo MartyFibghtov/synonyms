@@ -12,8 +12,13 @@ import SynonymsAddComponent from "@/components/SynonymsAddForm.vue";
 import SearchComponent from "@/components/SearchComponent.vue";
 
 export default {
-name: "SynonymsAddView",
-  components: {SearchComponent, SynonymsAddComponent, HeaderComponent}
+  name: "SynonymsAddView", 
+  components: {SearchComponent, SynonymsAddComponent, HeaderComponent},
+  // data() {
+  //   return {
+  //    
+  //   };
+  // },
 }
 </script>
 
