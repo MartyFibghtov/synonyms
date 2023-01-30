@@ -1,5 +1,6 @@
 <template>
   <div class="synonyms-add-container">
+    
     <form class="form" @submit.prevent="createSynonyms">
       <input type="text" v-model="word" placeholder="Enter word">
       <input type="text" v-model="synonyms" placeholder="Enter synonyms (comma separated)">
@@ -10,8 +11,13 @@
 
 <script>
 import axios from 'axios';
+import {validateStringMixin} from "@/mixins/validateStringMixin";
+
+import {toast} from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 export default {
   name: "SynonymsAddComponent",
+  components: {},
   data() {
     return {
       word: '',
@@ -20,7 +26,14 @@ export default {
   },
   methods: {
     async createSynonyms() {
+      
       try {
+        let synonyms = this.synonyms.split(',')
+        let word = this.word
+        if (!this.checkInput(word, synonyms))
+        {
+          return
+        }
         const response = await axios.post('http://localhost:5000/api/synonyms/create-synonyms/', {
           word: this.word,
           synonyms: this.synonyms.split(',')
@@ -28,14 +41,28 @@ export default {
         if (response.data.success) {
           this.word = '';
           this.synonyms = '';
-          alert(response.data.message);
+          toast.success(response.data.message);
         } else {
-          alert(response.data.message);
+          toast.error(response.data.message);
         }
       } catch (error) {
         console.error(error);
-        alert('An error occurred. Please try again later.');
+        toast.error('An error occurred. Please try again later.');
       }
+    },
+    checkInput(word, synonyms) {
+      if (!validateStringMixin.methods.validateWord(word)) {
+        toast.error("Wrong word format!");
+        return false
+      }
+      for (const synonym of synonyms)
+      {
+        if (!validateStringMixin.methods.validateWord(synonym)) {
+          toast.error("Wrong synonyms format!");
+          return false
+        }
+      }
+      return true
     }
   }
 };

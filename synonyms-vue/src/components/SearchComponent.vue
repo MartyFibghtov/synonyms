@@ -2,28 +2,42 @@
   <main>
     <div class="search-container">
       <form @submit.prevent="redirectToPage">
-        <input type="text" placeholder="Search for synonyms..." v-model="searchTerm">
+        <input type="text" placeholder="Search for synonyms..." v-model="searchWord">
         <button type="submit">Search</button>
       </form>
+      <h1 style="color: red">{{errorMessage}}</h1>
     </div>
   </main>
 </template>
 
 <script>
+import {validateStringMixin} from "@/mixins/validateStringMixin";
+
 export default {
   name: "SearchComponent",
   
   data() {
     return {
-      searchTerm: ""
+      searchWord: "",
+      errorMessage: "",
     };
   },
   
   methods: {
     redirectToPage() {
-      this.$router.push({ path: "/search/" + this.searchTerm });
+      let searchWord = this.searchWord
+      if (!validateStringMixin.methods.isNotNullOrEmpty(searchWord)) {
+        this.errorMessage = "Input can't be empty!"
+        return
+      }
+      if (!validateStringMixin.methods.noExternalSymbols(searchWord)) {
+        this.errorMessage = "Unknown symbols in search!"
+        return
+      }
+      this.$router.push({ path: "/search/" + searchWord });
       // Reset search bar when search is done 
-      this.searchTerm = ""
+      this.searchWord = ""
+      this.errorMessage = ""
     }
   }
 };
