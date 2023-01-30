@@ -26,14 +26,11 @@ export default {
   },
   methods: {
     async createSynonyms() {
-      
       try {
         let synonyms = this.synonyms.split(',')
         let word = this.word
-        if (!this.checkInput(word, synonyms))
-        {
-          return
-        }
+        this.validateInput(word, synonyms)
+        
         const response = await axios.post('http://localhost:5000/api/synonyms/create-synonyms/', {
           word: this.word,
           synonyms: this.synonyms.split(',')
@@ -50,19 +47,12 @@ export default {
         toast.error('An error occurred. Please try again later.');
       }
     },
-    checkInput(word, synonyms) {
-      if (!validateStringMixin.methods.validateWord(word)) {
-        toast.error("Wrong word format!");
-        return false
-      }
+    validateInput(word, synonyms) {
+      validateStringMixin.methods.validateWord(word)
       for (const synonym of synonyms)
       {
-        if (!validateStringMixin.methods.validateWord(synonym)) {
-          toast.error("Wrong synonyms format!");
-          return false
-        }
+        validateStringMixin.methods.validateWord(synonym)
       }
-      return true
     }
   }
 };

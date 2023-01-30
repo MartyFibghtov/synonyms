@@ -12,6 +12,7 @@
 
 <script>
 import {validateStringMixin} from "@/mixins/validateStringMixin";
+import {toast} from "vue3-toastify";
 
 export default {
   name: "SearchComponent",
@@ -25,19 +26,18 @@ export default {
   
   methods: {
     redirectToPage() {
-      let searchWord = this.searchWord
-      if (!validateStringMixin.methods.isNotNullOrEmpty(searchWord)) {
-        this.errorMessage = "Input can't be empty!"
-        return
+      try {
+        let searchWord = this.searchWord
+        validateStringMixin.methods.validateWord(searchWord)
+        this.$router.push({ path: "/search/" + searchWord });
+        // Reset search bar when search is done 
+        this.searchWord = ""
+        this.errorMessage = ""
+      } catch (error)
+      {
+        toast.error(error.message)
       }
-      if (!validateStringMixin.methods.noExternalSymbols(searchWord)) {
-        this.errorMessage = "Unknown symbols in search!"
-        return
-      }
-      this.$router.push({ path: "/search/" + searchWord });
-      // Reset search bar when search is done 
-      this.searchWord = ""
-      this.errorMessage = ""
+      
     }
   }
 };
