@@ -16,7 +16,6 @@ name: "HeaderComponent"
     background: #2665e2;
     color: white;
     text-align: center;
-    padding: 2em;
     position: fixed;
     top: 0;
   }
