@@ -21,7 +21,7 @@ export default {
   
   methods: {
     redirectToPage() {
-      this.$router.push({ name: "search/" + this.searchTerm });
+      this.$router.push({ path: "/search/" + this.searchTerm });
     }
   }
 };
