@@ -9,9 +9,11 @@
 </template>
 
 <script>
-import axios from "axios";
+
 import SearchComponent from "@/components/SearchComponent.vue";
 import SynonymList from "@/components/SynonymList.vue";
+import SynonymsAPI from "@/API/SynonymsApi";
+import {toast} from "vue3-toastify";
 
 export default {
   name: "WordSynonymsView.vue",
@@ -35,12 +37,9 @@ export default {
   methods: {
     async getSynonyms() {
       try {
-        const response = await axios.get(
-            `/api/synonyms/get-synonyms/${this.searchedWord}`
-        );
-        this.synonyms = response.data;
+        this.synonyms = await SynonymsAPI.getSynonyms(this.searchedWord);
       } catch (error) {
-        console.error(error);
+        toast.error(error.message);
       }
     }
   }

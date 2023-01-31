@@ -15,11 +15,11 @@
 </template>
 
 <script>
-import axios from 'axios';
 import {validateStringMixin} from "@/mixins/validateStringMixin";
 
 import {toast} from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
+import SynonymsAPI from "@/API/SynonymsApi";
 export default {
   name: "SynonymsAddComponent",
   components: {},
@@ -37,17 +37,15 @@ export default {
         let word = this.word
         this.validateInput(word, synonyms)
         
-        const response = await axios.post('/api/synonyms/create-synonyms/', {
-          word: this.word,
-          synonyms: this.synonyms.split(',')
-        });
-        if (response.data.success) {
+        const response =  await SynonymsAPI.createSynonyms(word, synonyms);
+        
+        if (response.success) {
           this.word = '';
           this.synonyms = '';
-          toast.success(response.data.message);
+          toast.success(response.message);
           this.showWarning = false
         } else {
-          toast.error(response.data.message);
+          toast.error(response.message);
         }
       } catch (error) {
         console.error(error);
