@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column align-items-center p-1" style="margin-top: 50px; margin-bottom: 100px">
+  <div class="d-flex flex-column align-items-center p-1" style="margin-top: 50px;">
     <div class="col-md-4 text-center">
       <img src="../assets/img/artem_photo.png" alt="My photo" class="img-fluid rounded-circle mb-3">
     </div>
