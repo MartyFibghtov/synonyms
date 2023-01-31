@@ -1,13 +1,15 @@
-<template>
-  <div class="synonyms-add-container">
-    
-    <form class="form" @submit.prevent="createSynonyms">
-      <input type="text" class="form-check-input" v-model="word" placeholder="Enter word">
-      <input type="text" v-model="synonyms" placeholder="Enter synonyms (comma separated)">
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-</template>
+
+  <template>
+    <div class="synonyms-add-container d-flex flex-column align-items-center" style="margin-top: 50px">
+      <form class="form w-50 d-flex flex-column align-items-center" @submit.prevent="createSynonyms">
+        <input type="text" class="form-control my-2 h-25" v-model="word" placeholder="Enter word">
+        <textarea type="text" class="form-control my-2 h-50" v-model="synonyms" placeholder="Enter synonyms (comma separated)"/>
+        <div class="my-2 d-flex justify-content-center">
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </template>
 
 <script>
 import axios from 'axios';

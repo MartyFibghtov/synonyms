@@ -18,8 +18,4 @@ export default {
 </script>
 
 <style>
-body {
-  color: #242424;
-  margin: 0;
-}
 </style>

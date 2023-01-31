@@ -1,8 +1,8 @@
 <template>
   <div>
     <SearchComponent></SearchComponent>
-    <div class="search-result-and-word">
-      <h2 class="searched-word">{{ searchedWord }}</h2>
+    <div class="search-result-and-word" style="width: 75%">
+      <h1 class="searched-word display-3" style="text-align: left; padding: 30px">{{ searchedWord }}</h1>
       <SynonymList :synonyms="synonyms"></SynonymList>
     </div>
   </div>
