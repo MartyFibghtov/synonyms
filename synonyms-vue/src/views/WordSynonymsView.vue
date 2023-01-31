@@ -1,6 +1,5 @@
 <template>
   <div>
-    <HeaderComponent></HeaderComponent>
     <SearchComponent></SearchComponent>
     <div class="search-result-and-word">
       <h2 class="searched-word">{{ searchedWord }}</h2>
@@ -13,11 +12,10 @@
 import axios from "axios";
 import SearchComponent from "@/components/SearchComponent.vue";
 import SynonymList from "@/components/SynonymList.vue";
-import HeaderComponent from "@/components/HeaderComponent.vue";
 
 export default {
   name: "WordSynonymsView.vue",
-  components: {HeaderComponent, SearchComponent, SynonymList},
+  components: {SearchComponent, SynonymList},
   data() {
     return {
       synonyms: []

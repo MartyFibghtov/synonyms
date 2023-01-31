@@ -1,14 +1,12 @@
 <template>
-<HeaderComponent></HeaderComponent>
-  About Us
+About us
 </template>
 
 <script>
-import HeaderComponent from "@/components/HeaderComponent.vue";
 
 export default {
 name: "AboutUsView",
-  components: {HeaderComponent}
+  components: {}
 }
 </script>
 

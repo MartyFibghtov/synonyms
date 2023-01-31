@@ -14,7 +14,6 @@
         <li>
           <router-link :to="{ path: '/about-us' }" class="nav-link px-2 link-dark" :active-class="'active-link'">About Us</router-link>
         </li>
-
       </ul>
     </div>
   </header>

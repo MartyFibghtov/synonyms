@@ -1,14 +1,13 @@
 <template>
-<header-component></header-component>
-  Info
+  <AppDescription></AppDescription>
 </template>
 
 <script>
-import HeaderComponent from "@/components/HeaderComponent.vue";
+import AppDescription from "@/components/AppDescription.vue";
 
 export default {
 name: "InfoView",
-  components: {HeaderComponent}
+  components: {AppDescription}
 }
 </script>
 
