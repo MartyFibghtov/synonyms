@@ -36,7 +36,7 @@ export default {
     async getSynonyms() {
       try {
         const response = await axios.get(
-            `http://localhost:5000/api/synonyms/get-synonyms/${this.searchedWord}`
+            `/api/synonyms/get-synonyms/${this.searchedWord}`
         );
         this.synonyms = response.data;
       } catch (error) {

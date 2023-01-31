@@ -37,7 +37,7 @@ export default {
         let word = this.word
         this.validateInput(word, synonyms)
         
-        const response = await axios.post('http://localhost:5000/api/synonyms/create-synonyms/', {
+        const response = await axios.post('/api/synonyms/create-synonyms/', {
           word: this.word,
           synonyms: this.synonyms.split(',')
         });

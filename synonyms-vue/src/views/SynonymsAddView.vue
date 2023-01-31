@@ -15,11 +15,6 @@ import SynonymsAddComponent from "@/components/SynonymsAddForm.vue";
 export default {
   name: "SynonymsAddView", 
   components: {SynonymsAddComponent},
-  // data() {
-  //   return {
-  //    
-  //   };
-  // },
 }
 </script>
 
