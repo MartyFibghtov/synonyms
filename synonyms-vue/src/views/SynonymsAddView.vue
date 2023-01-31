@@ -1,34 +1,23 @@
 <template>
   <div>
-    <HeaderComponent></HeaderComponent>
-    <search-component></search-component>
+    <div class="my-5" style="max-width: 500px; margin: auto; padding: 20px">
+      <h2 class="text-center text-primary">Place to add new synonyms</h2>
+      <p class="text-center">Here you can add new synonyms. Enter the word you want to add synonyms to and list its synonyms separaed with comma</p>
+      
+    </div>
     <SynonymsAddComponent></SynonymsAddComponent>
   </div>
 </template>
 
 <script>
-import HeaderComponent from "@/components/HeaderComponent.vue";
 import SynonymsAddComponent from "@/components/SynonymsAddForm.vue";
-import SearchComponent from "@/components/SearchComponent.vue";
 
 export default {
   name: "SynonymsAddView", 
-  components: {SearchComponent, SynonymsAddComponent, HeaderComponent},
-  // data() {
-  //   return {
-  //    
-  //   };
-  // },
+  components: {SynonymsAddComponent},
 }
 </script>
 
 <style scoped>
-SynonymsAddComponent {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  align-content: center;
-  font-family: Arial, sans-serif;
-  position: fixed;
-}
+
 </style>

@@ -1,25 +1,21 @@
 <template>
-  2
-  <HeaderComponent />
-  <SearchComponent style="margin-top: 200px"/>
-<!--  <FooterComponent />-->
+  <div>
+    <SearchComponent />
+    <AppDescription ></AppDescription>
+  </div>
 </template>
 
 <script>
-import HeaderComponent from "@/components/HeaderComponent.vue";
+// import SearchComponent from "@/components/SearchComponent.vue";
+import AppDescription from "@/components/AppDescription.vue";
 import SearchComponent from "@/components/SearchComponent.vue";
-// import FooterComponent from "@/components/FooterComponent.vue";
+
 export default {
   name: 'HomeView',
-  components: {SearchComponent, HeaderComponent, },
-  // components: {SearchComponent, HeaderComponent, FooterComponent},
+  components: {SearchComponent, AppDescription,},
 }
 
 </script>
 
 <style>
-body {
-  color: #242424;
-  margin: 0;
-}
 </style>

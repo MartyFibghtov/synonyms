@@ -14,7 +14,11 @@ const routes = [
   {
     path: '/add-synonyms/',
     component: () => import('@/views/SynonymsAddView.vue')
-  }
+  },
+  {
+    path: '/about-us/',
+    component: () => import('@/views/AboutUsView.vue')
+  },
 ]
 
 const router = createRouter({

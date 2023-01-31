@@ -1,9 +1,8 @@
 <template>
   <div>
-    <HeaderComponent></HeaderComponent>
     <SearchComponent></SearchComponent>
-    <div class="search-result-and-word">
-      <h2 class="searched-word">{{ searchedWord }}</h2>
+    <div class="search-result-and-word" style="width: 75%">
+      <h1 class="searched-word display-3" style="text-align: left; padding: 30px">{{ searchedWord }}</h1>
       <SynonymList :synonyms="synonyms"></SynonymList>
     </div>
   </div>
@@ -13,11 +12,10 @@
 import axios from "axios";
 import SearchComponent from "@/components/SearchComponent.vue";
 import SynonymList from "@/components/SynonymList.vue";
-import HeaderComponent from "@/components/HeaderComponent.vue";
 
 export default {
   name: "WordSynonymsView.vue",
-  components: {HeaderComponent, SearchComponent, SynonymList},
+  components: {SearchComponent, SynonymList},
   data() {
     return {
       synonyms: []
@@ -38,7 +36,7 @@ export default {
     async getSynonyms() {
       try {
         const response = await axios.get(
-            `http://localhost:5000/api/synonyms/get-synonyms/${this.searchedWord}`
+            `/api/synonyms/get-synonyms/${this.searchedWord}`
         );
         this.synonyms = response.data;
       } catch (error) {
