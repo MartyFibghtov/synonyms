@@ -45,7 +45,7 @@ export default {
           this.word = '';
           this.synonyms = '';
           toast.success(response.data.message);
-          this.showWarning = true
+          this.showWarning = false
         } else {
           toast.error(response.data.message);
         }
