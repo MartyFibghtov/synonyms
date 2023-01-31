@@ -6,13 +6,16 @@
       </router-link>
       <ul class="nav justify-content-center">
         <li>
+          <router-link :to="{ path: '/' }" class="nav-link px-2 link-dark" :active-class="'active-link'">Search</router-link>
+        </li>
+        <li>
           <router-link :to="{ path: '/add-synonyms' }" class="nav-link px-2 link-dark" :active-class="'active-link'">Add synonyms</router-link>
         </li>
         <li>
           <router-link :to="{ path: '/info' }" class="nav-link px-2 link-dark" :active-class="'active-link'">Info</router-link>
         </li>
         <li>
-          <router-link :to="{ path: '/about-us' }" class="nav-link px-2 link-dark" :active-class="'active-link'">About Us</router-link>
+          <router-link :to="{ path: '/about-us' }" class="nav-link px-2 link-dark" :active-class="'active-link'">About Me</router-link>
         </li>
       </ul>
     </div>

@@ -1,17 +1,15 @@
 <template>
   <div>
-    <search-component></search-component>
     <SynonymsAddComponent></SynonymsAddComponent>
   </div>
 </template>
 
 <script>
 import SynonymsAddComponent from "@/components/SynonymsAddForm.vue";
-import SearchComponent from "@/components/SearchComponent.vue";
 
 export default {
   name: "SynonymsAddView", 
-  components: {SearchComponent, SynonymsAddComponent},
+  components: {SynonymsAddComponent},
   // data() {
   //   return {
   //    
