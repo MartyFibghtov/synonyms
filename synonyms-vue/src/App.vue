@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderComponent style="height: 15%"></HeaderComponent>
+    <HeaderComponent></HeaderComponent>
     <router-view></router-view>
     <FooterComponent></FooterComponent>
   </div>

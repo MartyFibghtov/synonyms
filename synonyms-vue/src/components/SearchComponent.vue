@@ -1,7 +1,10 @@
 <template>
-    <form role="search">
+  <div class="d-flex align-items-center flex-column">
+    <form class="w-75" role="search">
       <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
     </form>
+  </div>
+  
 </template>
 
 <!--<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">-->
