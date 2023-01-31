@@ -1,11 +1,16 @@
 <template>
-  <div class="d-flex align-items-center flex-column">
-    <form class="w-75" role="search">
-      <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-    </form>
-  </div>
-  
+  <main>
+    <div class="d-flex align-items-center flex-column" style="margin-top: 30px">
+      <form class="w-75" @submit.prevent="redirectToPage">
+        <div class="form-group d-flex">
+          <input class="form-control flex-grow-1" type="text" placeholder="Search for synonyms..." v-model="searchWord">
+          <button class="btn btn-primary ml-2" type="submit">Search</button>
+        </div>
+      </form>
+    </div>
+  </main>
 </template>
+
 
 <!--<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">-->
 <!--<input type="search" class="form-control" placeholder="Search..." aria-label="Search">-->

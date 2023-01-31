@@ -2,7 +2,7 @@
   <div class="synonyms-add-container">
     
     <form class="form" @submit.prevent="createSynonyms">
-      <input type="text" v-model="word" placeholder="Enter word">
+      <input type="text" class="form-check-input" v-model="word" placeholder="Enter word">
       <input type="text" v-model="synonyms" placeholder="Enter synonyms (comma separated)">
       <button type="submit">Submit</button>
     </form>
