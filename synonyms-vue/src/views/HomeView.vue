@@ -1,5 +1,4 @@
 <template>
-  2
   <HeaderComponent />
   <SearchComponent style="margin-top: 200px"/>
 <!--  <FooterComponent />-->

@@ -1,14 +1,17 @@
 <template>
   <main>
     <div class="search-container">
-      <form @submit.prevent="redirectToPage">
-        <input type="text" placeholder="Search for synonyms..." v-model="searchWord">
-        <button type="submit">Search</button>
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
       </form>
       <h1 style="color: red">{{errorMessage}}</h1>
     </div>
   </main>
 </template>
+
+<!--<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">-->
+<!--<input type="search" class="form-control" placeholder="Search..." aria-label="Search">-->
+<!--</form>-->
 
 <script>
 import {validateStringMixin} from "@/mixins/validateStringMixin";
