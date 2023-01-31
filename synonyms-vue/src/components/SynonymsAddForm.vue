@@ -1,15 +1,18 @@
 
-  <template>
-    <div class="synonyms-add-container d-flex flex-column align-items-center" style="margin-top: 50px">
-      <form class="form w-50 d-flex flex-column align-items-center" @submit.prevent="createSynonyms">
-        <input type="text" class="form-control my-2 h-25" v-model="word" placeholder="Enter word">
-        <textarea type="text" class="form-control my-2 h-50" v-model="synonyms" placeholder="Enter synonyms (comma separated)"/>
-        <div class="my-2 d-flex justify-content-center">
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
-  </template>
+<template>
+  <div class="synonyms-add-container d-flex flex-column align-items-center" style="margin-top: 50px">
+    <form class="form w-50 d-flex flex-column align-items-left" @submit.prevent="createSynonyms">
+      <h5 style="text-align: left" class="my-2">Word:</h5>
+      <input type="text" class="form-control my-2 h-25" v-model="word" placeholder="Enter word">
+      <h5 style="text-align: left" class="my-2">Synonyms:</h5>
+      <textarea type="text" class="form-control my-2 h-50" v-model="synonyms" placeholder="Enter synonyms (comma separated)"/>
+      <p v-if="showWarning" class="text-danger my-2">*Warning: Only alphabets, ' and - are accepted in input fields.</p>
+      <div class="my-2 d-flex justify-content-center">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</template>
 
 <script>
 import axios from 'axios';
@@ -23,7 +26,8 @@ export default {
   data() {
     return {
       word: '',
-      synonyms: ''
+      synonyms: '',
+      showWarning: false
     };
   },
   methods: {
@@ -41,12 +45,14 @@ export default {
           this.word = '';
           this.synonyms = '';
           toast.success(response.data.message);
+          this.showWarning = true
         } else {
           toast.error(response.data.message);
         }
       } catch (error) {
         console.error(error);
-        toast.error('An error occurred. Please try again later.');
+        toast.error(error.message);
+        this.showWarning = true
       }
     },
     validateInput(word, synonyms) {

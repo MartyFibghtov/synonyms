@@ -28,17 +28,5 @@ export default {
 </script>
 
 <style scoped>
-* {
-  font-family: "Helvetica Neue",serif;
-}
-.not-found-message {
-  align-content: center;
-  text-align: center;
-}
-.search-result {
-  display: flex;
-  width: 50%;
-  justify-content: center;
-  align-items: center;
-}
+
 </style>
