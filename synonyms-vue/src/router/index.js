@@ -16,12 +16,12 @@ const routes = [
     component: () => import('@/views/SynonymsAddView.vue')
   },
   {
-    path: '/info/',
-    component: () => import('@/views/InfoView.vue')
-  },
-  {
     path: '/about-us/',
     component: () => import('@/views/AboutUsView.vue')
+  },
+  {
+    path: '/test/',
+    component: () => import('@/views/TestView.vue')
   }
 ]
 

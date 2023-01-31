@@ -59,35 +59,5 @@ export default {
 </script>
 
 <style scoped>
-.synonyms-add-container {
-  width: 50%;
-  margin: 2em auto;
-  position: relative;
-}
 
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form input[type="text"] {
-  width: 80%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-}
-
-.form button[type="submit"] {
-  width: 20%;
-  background: #2665e2;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
 </style>

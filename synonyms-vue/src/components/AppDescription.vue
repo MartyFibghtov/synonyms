@@ -1,5 +1,5 @@
 <template>
-  <div class="container my-5" style="max-width: 500px">
+  <div class="my-5" style="max-width: 500px">
     <h2 class="text-center text-primary">About the app</h2>
     <p class="text-center">Reeinvent: Synonyms is a powerful and easy-to-use tool that helps you find the perfect synonyms for any word. Whether you're a writer, a student, or just someone looking for a better way to express yourself, our app has got you covered.</p>
     <h3 class="text-center text-primary my-5">Some example synonyms:</h3>

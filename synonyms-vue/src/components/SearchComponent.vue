@@ -1,12 +1,7 @@
 <template>
-  <main>
-    <div class="search-container">
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-      </form>
-      <h1 style="color: red">{{errorMessage}}</h1>
-    </div>
-  </main>
+    <form role="search">
+      <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+    </form>
 </template>
 
 <!--<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">-->
@@ -23,7 +18,6 @@ export default {
   data() {
     return {
       searchWord: "",
-      errorMessage: "",
     };
   },
   
@@ -35,7 +29,6 @@ export default {
         this.$router.push({ path: "/search/" + searchWord });
         // Reset search bar when search is done 
         this.searchWord = ""
-        this.errorMessage = ""
       } catch (error)
       {
         toast.error(error.message)
@@ -47,44 +40,5 @@ export default {
 </script>
 
 <style scoped>
-  .search-container {
-    width: 50%;
-    margin: 2em auto;
-    position: relative;
-  }
-  form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .search-container {
-    width: 50%;
-    margin: 2em auto;
-  }
 
-  form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  input[type="text"] {
-    width: 80%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-  }
-
-  button[type="submit"] {
-    width: 20%;
-    background: #2665e2;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
 </style>

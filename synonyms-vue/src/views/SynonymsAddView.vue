@@ -19,12 +19,5 @@ export default {
 </script>
 
 <style scoped>
-SynonymsAddComponent {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  align-content: center;
-  font-family: Arial, sans-serif;
-  position: fixed;
-}
+
 </style>
