@@ -10,7 +10,7 @@
             </ul>
           </div>
         </div>
-        <div v-else class="not-found-message text-center">
+        <div v-else-if="synonyms.hasOwnProperty('success')" class="not-found-message text-center">
           <h1 class="my-3">Word not found :(</h1>
           <img style="width: 100%" src="@/assets/img/word_not_found.jpeg" alt="word not found">
           
