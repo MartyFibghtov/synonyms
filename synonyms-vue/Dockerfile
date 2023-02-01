@@ -1,14 +1,10 @@
 FROM node:14
 
+EXPOSE 8080
+ENV DISABLE_ESLINT_PLUGIN=true
 WORKDIR /app
 COPY package*.json ./
-RUN npm install --only=production
-RUN npm install @vue/cli-service
+RUN npm install
 COPY . .
 RUN npm run build
-
-EXPOSE 8080
-ENV NODE_ENV=production
-ENV DISABLE_ESLINT_PLUGIN=true
-
-CMD ["npm", "run", "serve"]
+CMD [ "npm", "run", "serve" ]
