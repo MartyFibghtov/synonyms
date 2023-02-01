@@ -1,14 +1,13 @@
-
 <template>
-  <div class="synonyms-add-container d-flex flex-column align-items-center" style="margin-top: 50px">
+  <div class="synonyms-add-container d-flex flex-column align-items-center">
     <form class="form w-50 d-flex flex-column align-items-left" @submit.prevent="createSynonyms">
-      <h5 style="text-align: left" class="my-2">Word:</h5>
-      <input type="text" class="form-control my-2 h-25" v-model="word" placeholder="Enter word">
-      <h5 style="text-align: left" class="my-2">Synonyms:</h5>
-      <textarea type="text" class="form-control my-2 h-50" v-model="synonyms" placeholder="Enter synonyms (comma separated)"/>
-      <p v-if="showWarning" class="text-danger my-2">*Warning: Only alphabets, ' and - are accepted in input fields.</p>
+      <h5 class="my-2 word-label">Word:</h5>
+      <input type="text" class="form-control my-2 h-25 word-input" v-model="word" placeholder="Enter word">
+      <h5 class="my-2 synonyms-label">Synonyms:</h5>
+      <textarea type="text" class="form-control my-2 h-50 synonyms-input" v-model="synonyms" placeholder="Enter synonyms (comma separated)"/>
+      <p v-if="showWarning" class="text-danger my-2 warning-text">*Warning: Only alphabets, ' and - are accepted in input fields.</p>
       <div class="my-2 d-flex justify-content-center">
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-primary submit-button" type="submit">Submit</button>
       </div>
     </form>
   </div>
@@ -65,5 +64,15 @@ export default {
 </script>
 
 <style scoped>
-
+  .word-label {
+    text-align: left;
+  }
+  
+  .synonyms-label {
+    text-align: left;
+  }
+  
+  .warning-text {
+    text-align: left;
+  }
 </style>
