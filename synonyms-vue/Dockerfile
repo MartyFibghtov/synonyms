@@ -3,6 +3,7 @@ FROM node:14
 WORKDIR /app
 COPY package*.json ./
 RUN npm install --only=production
+RUN npm install @vue/cli-service
 COPY . .
 RUN npm run build
 
