@@ -1,10 +1,13 @@
 FROM node:14
 
-EXPOSE 8080
-ENV DISABLE_ESLINT_PLUGIN=true
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN npm install --only=production
 COPY . .
 RUN npm run build
-CMD [ "npm", "run", "serve" ]
+
+EXPOSE 8080
+ENV NODE_ENV=production
+ENV DISABLE_ESLINT_PLUGIN=true
+
+CMD ["npm", "run", "serve"]

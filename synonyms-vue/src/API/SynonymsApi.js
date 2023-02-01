@@ -3,7 +3,7 @@ import axios from 'axios';
 class SynonymsAPI {
     static async createSynonyms(word, synonyms) {
         this.validateWordsSynonymsDiffer(word, synonyms)
-        const response = await axios.post('http://localhost:5000/api/synonyms/create-synonyms/', {
+        const response = await axios.post('/api/synonyms/create-synonyms/', {
             word,
             synonyms
         });
@@ -17,9 +17,8 @@ class SynonymsAPI {
 
     static async getSynonyms(searchedWord) {
         const response = await axios.get(
-            `http://localhost:5000/api/synonyms/get-synonyms/${searchedWord}`
+            `/api/synonyms/get-synonyms/${searchedWord}`
         );
-        console.log(response)
         return response.data
     }
 }
